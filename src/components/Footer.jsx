@@ -13,8 +13,8 @@ const Footer = () => {
           <div className="footer-socials">
             <a href="https://github.com/nihalasri" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a>
             <a href="https://linkedin.com/in/nihalasri" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
-            <a href="https://twitter.com/nihalasri" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>
-            <a href="https://instagram.com/nihalasri" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/official.nihxl__" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
           </div>
         </div>
 
@@ -34,17 +34,8 @@ const Footer = () => {
           <ul>
             <li><i className="fas fa-envelope"></i> nihalasri@gmail.com</li>
             <li><i className="fas fa-phone"></i> +91 000 000 0000</li>
-            <li><i className="fas fa-map-marker-alt"></i> Kerala, India</li>
+            <li><i className="fas fa-map-marker-alt"></i> Mayiladuthurai</li>
           </ul>
-        </div>
-
-        <div className="footer-section">
-          <h4>Newsletter</h4>
-          <p>Stay updated with my latest projects.</p>
-          <form className="footer-newsletter">
-            <input type="email" placeholder="Your Email" />
-            <button type="submit" className="btn btn-small">Subscribe</button>
-          </form>
         </div>
       </div>
       <div className="footer-bottom">
