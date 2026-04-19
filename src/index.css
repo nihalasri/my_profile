@@ -98,11 +98,16 @@ section {
 
 .dots span {
   display: inline-block;
-  width: 10px;
+  width: 12px;
   height: 4px;
   background: var(--primary-color);
   border-radius: 2px;
   margin: 0 4px;
+  transition: all 0.3s ease;
+}
+
+.dots:hover span {
+  width: 20px;
 }
 
 .highlight, .highlight_skill {
@@ -173,9 +178,35 @@ nav ul li a.active::after {
 
 .menu-btn {
   display: none;
-  font-size: 1.5rem;
   cursor: pointer;
-  color: #fff;
+  z-index: 1100;
+  width: 30px;
+  height: 22px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-btn .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.menu-btn.active .bar:nth-child(1) {
+  transform: translateY(9.5px) rotate(45deg);
+}
+
+.menu-btn.active .bar:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.menu-btn.active .bar:nth-child(3) {
+  transform: translateY(-9.5px) rotate(-45deg);
 }
 
 /* === HERO SECTION === */
@@ -561,42 +592,79 @@ nav ul li a.active::after {
 @media (max-width: 768px) {
   section { padding: 80px 5%; }
   
-  .menu-btn { display: block; }
+  .menu-btn { 
+    display: flex; 
+  }
   
   nav {
     position: fixed;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    background: var(--bg-dark);
-    padding: 100px 0 50px 0;
-    transition: all 0.5s ease;
-    border-bottom: 1px solid var(--glass-border);
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background: rgba(10, 10, 11, 0.98);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 1000;
+    border-left: 1px solid var(--glass-border);
+    padding: 0;
   }
   
-  nav.nav-active { top: 0; }
+  nav.nav-active { 
+    right: 0; 
+  }
   
   nav ul {
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 40px;
+  }
+
+  nav ul li a {
+    font-size: 1.5rem;
   }
   
   .hero {
     flex-direction: column-reverse;
     text-align: center;
     padding-top: 150px;
+    gap: 30px;
   }
   
+  .hero-text h1 { font-size: 2.8rem; }
   .hero-text { max-width: 100%; }
-  .hero-image img { width: 100%; max-width: 400px; }
+  .hero-image img { width: 100%; max-width: 350px; }
   
-  .about-container { flex-direction: column; }
-  .about-image img { width: 100%; }
+  .about-container { flex-direction: column; text-align: center; }
+  .about-image img { width: 100%; max-width: 400px; }
+  .about-details { grid-template-columns: 1fr; text-align: left; }
+  .social-links { justify-content: center; }
   
   .experience-container { grid-template-columns: 1fr; }
   
   .footer-content { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
   .footer-bottom-links { justify-content: center; }
+  .footer-newsletter { flex-direction: column; }
+  .footer-newsletter .btn { align-self: center; width: 100%; }
 }
+
+@media (max-width: 480px) {
+  section { padding: 60px 5%; }
+  .section-title { font-size: 2.2rem; }
+  .hero-text h1 { font-size: 2.4rem; }
+  .contact-container { padding: 30px 20px; }
+  .projects-container { grid-template-columns: 1fr; }
+  .skills-container { grid-template-columns: 1fr; }
+  
+  header { padding: 15px 5%; }
+  .logo { font-size: 1.3rem; }
+  
+  .about-details ul li { font-size: 0.85rem; }
+  .hero-text .intro { font-size: 0.8rem; letter-spacing: 1px; }
+}
+
+

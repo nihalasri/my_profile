@@ -34,8 +34,10 @@ const Navbar = () => {
     <header className={isMenuOpen ? "header-active" : ""}>
       <div className="logo"><span className="red">NIHAL </span> ASRI</div>
       
-      <div className="menu-btn" onClick={toggleMenu}>
-        <i className={isMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>
+      <div className={`menu-btn ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+        <div className="bar"></div>
+        <div className="bar"></div>
+        <div className="bar"></div>
       </div>
 
       <nav className={isMenuOpen ? "nav-active" : ""}>
