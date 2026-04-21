@@ -1,14 +1,42 @@
+import { motion } from 'framer-motion';
+
 const About = () => {
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
+
   return (
-    <section id="about">
-      <h2 className="section-title"><span className="highlight_skill">A</span>bout <span className="highlight_skill">M</span>e</h2>
-      <p className="section-subtitle">Professional Profile - There Is All About Me</p>
-      <div className="dots"><span></span><span></span><span></span></div>
+    <motion.section 
+      id="about"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <motion.h2 variants={fadeInUp} className="section-title"><span className="highlight_skill">A</span>bout <span className="highlight_skill">M</span>e</motion.h2>
+      <motion.p variants={fadeInUp} className="section-subtitle">Professional Profile - There Is All About Me</motion.p>
+      <motion.div variants={fadeInUp} className="dots"><span></span><span></span><span></span></motion.div>
       <div className="about-container">
-        <div className="about-image">
+        <motion.div 
+          className="about-image"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <img src="/profilee.png" alt="NIHAL ASRI" />
-        </div>
-        <div className="about-content">
+        </motion.div>
+        <motion.div 
+          className="about-content"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <h3>I'm NIHAL</h3>
           <p>
             I am a dedicated Full Stack Developer with experience in building robust and scalable web applications. My expertise spans across front-end technologies like React and back-end frameworks like Node.js.
@@ -32,9 +60,9 @@ const About = () => {
             <a href="https://www.linkedin.com/in/nihalasri" target="_blank" rel="noreferrer" id="about-linkedin" title="LinkedIn Profile"><i className="fa-brands fa-linkedin-in"></i></a>
             <a href="mailto:nihalofficialacc@gmail.com" id="about-email" title="Email Me"><i className="fa-solid fa-envelope"></i></a>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

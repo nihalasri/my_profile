@@ -1,8 +1,15 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <motion.footer 
+      className="footer"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1 }}
+    >
       <div className="footer-content">
         <div className="footer-section">
           <h3>NIHAL<span className="red">.</span></h3>
@@ -45,8 +52,9 @@ const Footer = () => {
           <span>Terms of Service</span>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 
 export default Footer;
+

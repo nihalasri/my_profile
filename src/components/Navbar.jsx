@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -31,7 +32,12 @@ const Navbar = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className={isMenuOpen ? "header-active" : ""}>
+    <motion.header 
+      className={isMenuOpen ? "header-active" : ""}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+    >
       <div className="logo"><span className="red">NIHAL </span> ASRI</div>
       
       <div className={`menu-btn ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
@@ -49,8 +55,9 @@ const Navbar = () => {
           <li><a href="#contact" onClick={closeMenu} className={activeSection === 'contact' ? 'active' : ''}>Contact</a></li>
         </ul>
       </nav>
-    </header>
+    </motion.header>
   );
 };
 
 export default Navbar;
+

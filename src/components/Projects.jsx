@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 const Projects = () => {
   const projectsData = [
     {
@@ -23,14 +25,47 @@ const Projects = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    },
+  };
+
   return (
-    <section id="projects">
-      <h2 className="section-title">My <span className="highlight_skill">P</span>rojects</h2>
-      <p className="section-subtitle">A Selection Of My Best Work</p>
-      <div className="dots"><span></span><span></span><span></span></div>
-      <div className="projects-container">
+    <motion.section 
+      id="projects"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+    >
+      <motion.h2 variants={cardVariants} className="section-title">My <span className="highlight_skill">P</span>rojects</motion.h2>
+      <motion.p variants={cardVariants} className="section-subtitle">A Selection Of My Best Work</motion.p>
+      <motion.div variants={cardVariants} className="dots"><span></span><span></span><span></span></motion.div>
+      
+      <motion.div 
+        className="projects-container"
+        variants={containerVariants}
+      >
         {projectsData.map((project, index) => (
-          <div key={index} className="project-card">
+          <motion.div 
+            key={index} 
+            className="project-card"
+            variants={cardVariants}
+            whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)' }}
+          >
             <h1 className="project-card-heading">{project.heading}</h1>
             <div className="project-card-content">
               <h3>{project.title}</h3>
@@ -40,11 +75,12 @@ const Projects = () => {
                 <a href={project.sourceLink} className="btn" target="_blank" rel="noopener noreferrer">Source Code</a>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 
 export default Projects;
+
