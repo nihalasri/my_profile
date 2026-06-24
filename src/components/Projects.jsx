@@ -12,11 +12,11 @@ const Projects = () => {
     },
     {
       title: "E-Waiter System",
-      heading: "E+Waiter",
+      heading: "E_Waiter",
       description:
         "A responsive restaurant management and digital ordering application built with React, Flask, and MySQL. It features a digital menu for tables, a real-time kitchen tracking dashboard, and administrative controls.",
-      demoLink: "https://demo.example.com/e-waiter",
-      sourceLink: "https://github.com/example/e-waiter",
+      demoLink: "https://ewaiter-ebon.vercel.app/",
+      sourceLink: "https://github.com/nihalasri/E_waiter",
     },
     {
       title: "Personal Portfolio",
